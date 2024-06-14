@@ -13,25 +13,21 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-direction: column; 
-            margin: 0;
-            height: 100vh; 
         }
         h1 {
             color: #360c97;
             font-size: 3em;
-            margin: 20px 0;
         }
         .flip-container {
             perspective: 1000px;
             margin: 0 auto 20px auto;
-            width: 100%;
-            max-width: 500px;
-            height: auto; 
+            width: 500px; 
+            height: 500px; 
         }
         .flip-inner {
             position: relative;
             width: 100%;
+            max-width: 100%;
             height: 100%;
             transition: transform 0.6s;
             transform-style: preserve-3d;
@@ -41,18 +37,22 @@
         }
         .flip-front, .flip-back {
             backface-visibility: hidden;
+
             width: 100%;
-            height: 100%;
+            height: auto;
+
+        }
+        .flip-front {
             position: absolute;
             top: 0;
             left: 0;
-        }
-        .flip-front {
             z-index: 2;
             transform: rotateY(0deg);
         }
         .flip-back {
             position: absolute;
+            top: 10px;
+            bottom: 0px;
             transform: rotateY(180deg);
             border-radius: 10px;
             padding: 20px;
@@ -94,69 +94,41 @@
             background-color: #228b8b;
         }
         .container {
-            width: 100%;
             max-width: 800px;
             margin: 0 auto;
             background: white;
             padding: 20px;
             border-radius: 15px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            box-sizing: border-box;
+        }
+        * {
+        box-sizing: border-box;
         }
         .parent-element {
-            filter: drop-shadow(20rem 0 0 rgba(0, 30, 200, 0.65)) drop-shadow(-20rem 0 0 rgba(0, 30, 200, 0.65)) drop-shadow(40rem 0 0 rgba(0, 30, 200, 0.65)) drop-shadow(-40rem 0 0 rgba(0, 30, 200, 0.65));
-            transition: filter 600ms;
-            position: absolute;
-            top: 65%;
-            left: 44.7%;
+        filter: drop-shadow(20rem 0 0 rgba(0, 30, 200, 0.65)) drop-shadow(-20rem 0 0 rgba(0, 30, 200, 0.65)) drop-shadow(40rem 0 0 rgba(0, 30, 200, 0.65)) drop-shadow(-40rem 0 0 rgba(0, 30, 200, 0.65));
+        transition: filter 600ms;
+        position: absolute;
+        top: 65%;
+        left: 44.7%;
         }
         .parent-element:hover {
-            filter: drop-shadow(0 0 0 rgba(0, 30, 200, 0.65));
+        filter: drop-shadow(0 0 0 rgba(0, 30, 200, 0.65));
         }
         .clipped-element {
-            width: 20rem;
-            height: 20rem;
-            margin: 0 auto;
-            background-color: deeppink;
-            clip-path: polygon(0 50%, 50% 0, 100% 50%, 50% 100%, 50% 100%, 50% 50%)
+        width: 20rem;
+        height: 20rem;
+        margin: 0 auto;
+        background-color: deeppink;
+        clip-path: polygon(0 50%, 50% 0, 100% 50%, 50% 100%, 50% 100%, 50% 50%)
         }
-        @media (max-width: 768px) {
-            body {
-                padding: 20px;
-            }
-            .container {
-                padding: 10px;
-            }
-            h1 {
-                font-size: 2em;
-            }
-            .flip-container {
-                width: 100%;
-                height: auto;
-            }
-            .flip-back {
-                padding: 10px;
-            }
-            img {
-                border-width: 3px;
-            }
-            a {
-                padding: 8px 16px;
-                margin: 5px;
-            }
-            .parent-element {
-                top: 75%;
-                left: 50%;
-                transform: translateX(-50%);
-            }
-        }
+
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Wsg</h1>
         <p>Hover your mouse around the pink shape :3</p>
-        <br/>
+        <br />
         <div class="flip-container" id="flip-container">
             <div class="flip-inner">
                 <div class="flip-front">
@@ -178,7 +150,7 @@
     <div class="parent-element">
         <div class="clipped-element"></div>
     </div>
-
+    
     <script>
         document.getElementById('contact-link').addEventListener('click', function(event) {
             event.preventDefault();
@@ -187,4 +159,3 @@
     </script>
 </body>
 </html>
-
