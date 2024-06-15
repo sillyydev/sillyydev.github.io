@@ -11,6 +11,7 @@
             text-align: center;
             padding: 50px;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
         }
@@ -21,13 +22,13 @@
         .flip-container {
             perspective: 1000px;
             margin: 0 auto 20px auto;
-            width: 500px; 
+            width: 100%; 
+            max-width: 500px;
             height: 500px; 
         }
         .flip-inner {
             position: relative;
             width: 100%;
-            max-width: 100%;
             height: 100%;
             transition: transform 0.6s;
             transform-style: preserve-3d;
@@ -37,10 +38,8 @@
         }
         .flip-front, .flip-back {
             backface-visibility: hidden;
-
             width: 100%;
-            height: auto;
-
+            height: 100%;
         }
         .flip-front {
             position: absolute;
@@ -51,8 +50,8 @@
         }
         .flip-back {
             position: absolute;
-            top: 10px;
-            bottom: 0px;
+            top: 0;
+            bottom: 0;
             transform: rotateY(180deg);
             border-radius: 10px;
             padding: 20px;
@@ -73,7 +72,6 @@
         }
         img {
             max-width: 100%;
-            max-height: 100%;
             height: auto;
             border: 5px solid #928367;
             border-radius: 10px;
@@ -94,6 +92,7 @@
             background-color: #228b8b;
         }
         .container {
+            width: 100%;
             max-width: 800px;
             margin: 0 auto;
             background: white;
@@ -105,22 +104,23 @@
         box-sizing: border-box;
         }
         .parent-element {
-        filter: drop-shadow(20rem 0 0 rgba(0, 30, 200, 0.65)) drop-shadow(-20rem 0 0 rgba(0, 30, 200, 0.65)) drop-shadow(40rem 0 0 rgba(0, 30, 200, 0.65)) drop-shadow(-40rem 0 0 rgba(0, 30, 200, 0.65));
-        transition: filter 600ms;
-        position: absolute;
-        top: 65%;
-        left: 44.7%;
+            filter: drop-shadow(20rem 0 0 rgba(0, 30, 200, 0.65)) drop-shadow(-20rem 0 0 rgba(0, 30, 200, 0.65)) drop-shadow(40rem 0 0 rgba(0, 30, 200, 0.65)) drop-shadow(-40rem 0 0 rgba(0, 30, 200, 0.65));
+            transition: filter 600ms;
+            position: absolute;
+            top: 65%;
+            left: 44.7%;
         }
         .parent-element:hover {
-        filter: drop-shadow(0 0 0 rgba(0, 30, 200, 0.65));
+            filter: drop-shadow(0 0 0 rgba(0, 30, 200, 0.65));
         }
         .clipped-element {
-        width: 20rem;
-        height: 20rem;
-        margin: 0 auto;
-        background-color: deeppink;
-        clip-path: polygon(0 50%, 50% 0, 100% 50%, 50% 100%, 50% 100%, 50% 50%)
+            width: 20rem;
+            height: 20rem;
+            margin: 0 auto;
+            background-color: deeppink;
+            clip-path: polygon(0 50%, 50% 0, 100% 50%, 50% 100%, 50% 100%, 50% 50%)
         }
+
 
     </style>
 </head>
@@ -150,7 +150,7 @@
     <div class="parent-element">
         <div class="clipped-element"></div>
     </div>
-    
+
     <script>
         document.getElementById('contact-link').addEventListener('click', function(event) {
             event.preventDefault();
