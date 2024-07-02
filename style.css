@@ -15,8 +15,8 @@ h1 {
 .flip-container {
     perspective: 1000px;
     margin: 0 auto 20px auto;
-    width: 20vw; 
-    height: 20vw;
+    width: 40vh; 
+    height: 40vh;
 }
 .flip-inner {
     position: relative;
